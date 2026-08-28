@@ -134,10 +134,8 @@ def obtener_items(texto=None, campo=None): # Con texto=None hago que el parámet
             FROM items
             ORDER BY titulo
         """)
-
-    #items = cursor.fetchall() # Con cursor.fetchall() obtengo todos los registros de la consulta y los guardo en la variable items. 
     
-    filas = cursor.fetchall()
+    filas = cursor.fetchall() # Con cursor.fetchall() obtengo todos los registros de la consulta y los guardo en la variable filas.
     conexion.close()
 
     items = []
@@ -198,15 +196,8 @@ def obtener_item_por_id(item_id):
     )
 
 def formatear_item(item):
-    print(
-        f"ID: {item.id}\n"
-        f"Título: {item.titulo}\n"
-        f"Tipo: {item.tipo}\n"
-        f"Valoración: {item.valoracion}\n"
-        f"Género: {item.genero}\n"
-        f"Autor: {item.autor}\n"
-        f"Notas: {item.notas}\n"
-        "-----------------------------"
+    print(item) # Aquí se llama automáticamente al método __str__ para que se impriman los atributos de este objeto con el formato que se ha diseñado en este método
+    print("-----------------------------"
     )
 
 # Función para mostrar todos los registros de la tabla items

@@ -154,23 +154,6 @@ def obtener_datos_ubicacion(ubicacion):
 
     return datos
 
-# def buscar_ubicaciones_por_item(item_id):
-#     conexion = conectar()
-#     cursor = conexion.cursor()
-
-#     cursor.execute("""
-#          SELECT u.id, d.nombre, u.ruta
-#          FROM ubicaciones u
-#          JOIN dispositivos d ON u.dispositivo_id = d.id
-#          WHERE u.item_id = ?
-#          ORDER BY d.nombre
-#     """, (item_id,))
-
-#     ubicaciones = cursor.fetchall()
-#     conexion.close()
-
-#     return ubicaciones
-
 def buscar_ubicaciones_por_item(item_id):
     conexion = conectar()
     cursor = conexion.cursor()
@@ -317,8 +300,6 @@ def buscar_items_por_dispositivo(dispositivo_id):
             fila[10]
         )
 
-    #item.ruta = fila[7]
-    #resultados.append(item, ubicacion)
         resultados.append((item, ubicacion)) # El método append sólo admite un parámetro. Como queremos pasar dos parámetros (item y ubicacion), 
                                              # tengo que convertir estos dos parámetros en una tupla, por eso al método append se le pasa estos 
                                              # dos parámetros entre paréntesis.
@@ -368,116 +349,6 @@ def que_hay_en():
             )
 
         print()
-
-# def buscar_items_por_dispositivo(dispositivo_id):
-#     conexion = conectar()
-#     cursor = conexion.cursor()
-
-#     cursor.execute("""
-#         SELECT
-#             items.id,
-#             items.titulo,
-#             items.tipo,
-#             items.valoracion,
-#             items.genero,
-#             items.autor,
-#             items.notas,
-#             ubicaciones.ruta
-#         FROM ubicaciones
-#         JOIN items
-#             ON ubicaciones.item_id = items.id
-#         WHERE ubicaciones.dispositivo_id = ?
-#         ORDER BY items.titulo
-#     """, (dispositivo_id,))
-
-#     filas = cursor.fetchall()
-#     conexion.close()
-#     items = []
-
-#     for fila in filas:
-#         item = Item(
-#             fila[0],
-#             fila[1],
-#             fila[2],
-#             fila[3],
-#             fila[4],
-#             fila[5],
-#             fila[6]
-#         )
-
-#     item.ruta = fila[7]
-#     items.append(item)
-
-#     return items
-
-# def que_hay_en():
-#     dispositivos = obtener_dispositivos()
-#     dispositivos.sort(key=lambda dispositivo: dispositivo.id)  # Ordeno los dispositivos por ID de forma ascendente.
-
-#     if not dispositivos:
-#         print("No hay dispositivos registrados.")
-#         return
-
-#     print()
-#     print("¿En qué dispositivo quieres buscar?")
-
-#     dispositivo_id = seleccionar_id(
-#         dispositivos,
-#         "Selecciona el ID del dispositivo: "
-#     )
-
-#     resultados = buscar_items_por_dispositivo(dispositivo_id)
-
-#     if not resultados:
-#         print("No hay elementos registrados en este dispositivo.")
-#         return
-
-#     items = []
-#     for item, ubicacion in resultados:
-#         items.append(item)
-
-#     grupos = agrupar_por_tipo(items)
-
-#     print()
-
-#     for tipo, elementos in grupos.items():
-#         print(tipo.capitalize())
-
-#         for elemento in elementos:
-#             print(
-#                 f"  ID: {elemento.id} | "
-#                 f"{elemento.titulo} → {ubicacion.ruta}"
-#             )
-#             break
-
-#         print()
-
-# def seleccionar_ubicacion(ubicaciones):
-#     if not ubicaciones:
-#         return None
-
-#     ids_disponibles = []
-
-#     print()
-
-#     for ubicacion in ubicaciones:
-#         ids_disponibles.append(ubicacion[0])
-
-#         print(
-#             f"ID: {ubicacion[0]} | "
-#             f"Dispositivo: {ubicacion[1]} | "
-#             f"Ruta: {ubicacion[2]}"
-#         )
-
-#     while True:
-#         ubicacion_id = pedir_entero(
-#             "Selecciona el ID de la ubicación: "
-#         )
-
-#         if ubicacion_id in ids_disponibles:
-#             return ubicacion_id
-
-#         print("El ID seleccionado no existe.")
 
 def seleccionar_ubicacion(ubicaciones):
     if not ubicaciones:

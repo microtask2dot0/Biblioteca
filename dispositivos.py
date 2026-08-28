@@ -66,7 +66,9 @@ def mostrar_dispositivos():
         return
 
     for dispositivo in dispositivos:
-        print(f"ID: {dispositivo.id}, Nombre: {dispositivo.nombre}, Tipo: {dispositivo.tipo}")
+        print(dispositivo)
+        print("________________________")
+        print()
 
 def borrar_dispositivo(dispositivo_id):
     conexion = conectar()
@@ -101,11 +103,7 @@ def eliminar_dispositivo():
     for dispositivo in dispositivos:
         if dispositivo.id == dispositivo_id:
             print()
-            print(
-                f"ID: {dispositivo.id}\n"
-                f"Nombre: {dispositivo.nombre}\n"
-                f"Tipo: {dispositivo.tipo}"
-            )
+            print(dispositivo)
             break
 
     if not pedir_confirmacion(
