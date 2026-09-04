@@ -30,6 +30,12 @@ class Item:
             f"Notas: {self.notas}"
         )
 
+    def tiene_valoracion(self):
+        return self.valoracion > 0
+
+    def es_del_tipo(self, tipo):
+        return self.tipo.lower() == tipo.lower()
+
 class Dispositivo:
 
     def __init__(

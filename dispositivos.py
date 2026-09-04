@@ -1,5 +1,5 @@
 from database import conectar
-from utils import seleccionar_id, pedir_confirmacion
+from utils import seleccionar_id, pedir_confirmacion, mostrar_titulo
 from models import Dispositivo
 
 def anadir_dispositivo():
@@ -64,6 +64,8 @@ def mostrar_dispositivos():
     if not dispositivos:
         print("No hay dispositivos registrados.")
         return
+
+    mostrar_titulo("--- DISPOSITIVOS ---")
 
     for dispositivo in dispositivos:
         print(dispositivo)

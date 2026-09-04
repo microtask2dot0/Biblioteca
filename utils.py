@@ -44,6 +44,26 @@ def agrupar_por_tipo(elementos):
         grupos[tipo].append(elemento)
     return grupos
 
+def mostrar_menu(titulo, opciones):
+
+    print()
+    print("=" * len(titulo))
+    print(f"{titulo}")
+    print("=" * len(titulo))
+    print()
+
+    for numero, opcion in enumerate(opciones, start=1):
+        print(f"{numero}. {opcion}")
+
+    print()
+
+def mostrar_titulo(titulo):
+    print()
+    print("=" * len(titulo))
+    print(titulo)
+    print("=" * len(titulo))
+    print()
+
 def normalizar_texto(texto):
     # Normaliza el texto a minúsculas y elimina espacios al inicio y al final
     return texto.strip().lower()

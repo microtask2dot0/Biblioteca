@@ -2,7 +2,7 @@ import sqlite3
 from database import conectar
 from items import obtener_items, seleccionar_item, formatear_item
 from dispositivos import obtener_dispositivos
-from utils import seleccionar_id, agrupar_por_tipo, pedir_entero, pedir_confirmacion
+from utils import seleccionar_id, agrupar_por_tipo, pedir_entero, pedir_confirmacion, mostrar_titulo
 from models import Item, Ubicacion
 
 def anadir_ubicacion():
@@ -193,6 +193,8 @@ def mostrar_ubicaciones():
         print("No hay ubicaciones registradas.")
         return
 
+    mostrar_titulo("--- UBICACIONES ---")
+
     for ubicacion in ubicaciones:
 
         datos = obtener_datos_ubicacion(ubicacion)
@@ -337,7 +339,7 @@ def que_hay_en():
 
         grupos[tipo].append((item, ubicacion))
 
-    print()
+    mostrar_titulo("--- CONTENIDO DEL DISPOSITIVO ---")
 
     for tipo, elementos in grupos.items():
         print(tipo.capitalize())

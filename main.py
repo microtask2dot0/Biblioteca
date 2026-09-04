@@ -2,18 +2,21 @@ from database import crear_base_datos
 from items import anadir_item, mostrar_items, buscar_items, eliminar_item
 from dispositivos import anadir_dispositivo, mostrar_dispositivos, eliminar_dispositivo
 from ubicaciones import anadir_ubicacion, mostrar_ubicaciones, donde_esta, que_hay_en, eliminar_ubicacion
-from utils import pedir_entero, pausar
+from utils import pedir_entero, pausar, mostrar_menu
 
 
 def menu_items():
     while True:
-        print("\n--- ELEMENTOS ---")
-        print("\n1. Añadir elemento")
-        print("2. Mostrar biblioteca")
-        print("3. Buscar elemento")
-        print("4. Eliminar elemento")
-        print("5. Volver al menú principal")
-        print(" ")
+        mostrar_menu(
+            "--- ELEMENTOS ---",
+            [
+                "Añadir elemento",
+                "Mostrar biblioteca",
+                "Buscar elemento",
+                "Eliminar elemento",
+                "Volver al menú principal"
+            ]
+        )
 
         opcion = pedir_entero("Selecciona una opción: ")
 
@@ -37,13 +40,16 @@ def menu_items():
 
 def menu_dispositivos():
     while True:
-        print("\n--- DISPOSITIVOS ---")
-        print("\n1. Añadir dispositivo")
-        print("2. Mostrar dispositivos")
-        print("3. Eliminar dispositivo")
-        print("4. Volver al menú principal")
-        print(" ")
-
+        mostrar_menu(
+            "--- DISPOSITIVOS ---",
+            [
+                "Añadir dispositivo",
+                "Mostrar dispositivos",
+                "Eliminar dispositivo",
+                "Volver al menú principal"
+            ]
+        )
+        
         opcion = pedir_entero("Selecciona una opción: ")
 
         if opcion == 1:
@@ -63,14 +69,17 @@ def menu_dispositivos():
 
 def menu_ubicaciones():
     while True:
-        print("\n--- UBICACIONES ---")
-        print("\n1. Añadir ubicación")
-        print("2. Mostrar ubicaciones")
-        print("3. Eliminar ubicación")
-        print("4. ¿Dónde está?")
-        print("5. ¿Qué hay en un dispositivo?")
-        print("6. Volver al menú principal")
-        print(" ")
+        mostrar_menu(
+            "--- UBICACIONES ---",
+            [
+                "Añadir ubicación",
+                "Mostrar ubicaciones",
+                "Eliminar ubicación",
+                "¿Dónde está?",
+                "¿Qué hay en un dispositivo?",
+                "Volver al menú principal"
+            ]
+        )
 
         opcion = pedir_entero("Selecciona una opción: ")
 
@@ -98,14 +107,15 @@ def menu_ubicaciones():
 def menu():
     #  Creo un bucle que muestra indefinidamente el menú hasta que el usuario decida salir.
     while True:
-        print("\n=============")
-        print("Mi biblioteca")
-        print("=============")
-        print("\n1. Gestionar elementos")
-        print("2. Gestionar dispositivos")
-        print("3. Gestionar ubicaciones")
-        print("4. Salir")
-        print("")
+        mostrar_menu(
+            "--- MI BIBLIOTECA ---",
+            [
+                "Gestionar elementos",
+                "Gestionar dispositivos",
+                "Gestionar ubicaciones",
+                "Salir"
+            ]
+        )
 
         opcion = pedir_entero("Selecciona una opción: ")
 

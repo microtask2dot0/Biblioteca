@@ -246,18 +246,5 @@ Crear clases
 
 28/08/26
 
-2. Mejorar las clases con métodos
-
-Por ejemplo, que Item pueda hacer algo relacionado con sus propios datos:
-
-item.mostrar()
-
-aunque aquí habría que decidir si queremos mezclar modelo y presentación.
-
-3. Mejorar las relaciones entre objetos
-
-Por ejemplo, estudiar si tiene sentido que un Item pueda tener varias Ubicacion, que es precisamente una de las relaciones que ya tienes en la base de datos.
-
-4. Mejorar la interfaz
-
-Aquí podríamos añadir cosas que realmente aporten al programa, como filtros, ordenar resultados, estadísticas de la biblioteca, etc.
+03/09/2026
+04/09/26

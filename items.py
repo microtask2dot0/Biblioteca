@@ -1,5 +1,5 @@
 from database import conectar
-from utils import pedir_entero, normalizar_texto, pedir_confirmacion
+from utils import pedir_entero, normalizar_texto, pedir_confirmacion, mostrar_titulo
 from models import Item
 
 def pedir_valoracion():
@@ -208,6 +208,8 @@ def mostrar_items():
         print("No hay items registrados.")
         return
 
+    mostrar_titulo("--- BIBLIOTECA ---")
+
     for item in items:
         formatear_item(item)
 
@@ -261,8 +263,9 @@ def buscar_items():
 
         print()
         print(f"\nSe encontraron {len(items)} resultados.")
-        print()
-        print("Resultados:")
+        #print()
+        #print("Resultados:")
+        mostrar_titulo("--- RESULTADOS ---")
 
         for item in items:
             formatear_item(item)
